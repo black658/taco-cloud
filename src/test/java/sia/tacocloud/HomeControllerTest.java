@@ -12,13 +12,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest
-class HomeControllerTest {
+public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void testHomePage() throws Exception {
+    public void testHomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
