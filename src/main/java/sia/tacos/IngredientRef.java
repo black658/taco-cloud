@@ -1,10 +1,11 @@
 package sia.tacos;
 
-import org.springframework.data.relational.core.mapping.Table;
+
+import javax.persistence.Entity;
 
 import lombok.Data;
 
-@Table
+@Entity
 @Data
 public class IngredientRef {
 
