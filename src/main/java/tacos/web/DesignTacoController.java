@@ -1,4 +1,4 @@
-package sia.tacos.web;
+package tacos.web;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.extern.slf4j.Slf4j;
-import sia.tacos.Ingredient;
-import sia.tacos.Taco;
-import sia.tacos.TacoOrder;
-import sia.tacos.Ingredient.Type;
-import sia.tacos.data.IngredientRepository;
+import tacos.Ingredient;
+import tacos.Taco;
+import tacos.TacoOrder;
+import tacos.TacoUDRUtils;
+import tacos.Ingredient.Type;
+import tacos.data.IngredientRepository;
 
 @Slf4j
 @Controller
@@ -67,7 +68,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(taco);
+        tacoOrder.addTaco(TacoUDRUtils.toTacoUDT(taco));
         log.info("Processing taco: {}", taco);
 
         return "redirect:/orders/current";
