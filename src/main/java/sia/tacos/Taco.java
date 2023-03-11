@@ -1,5 +1,6 @@
 package sia.tacos;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 
 import lombok.Data;
 
@@ -29,7 +29,9 @@ public class Taco {
 
     @Size(min=1, message="You must choose at least 1 ingredients")
     @ManyToMany()
-    private List<IngredientRef> ingredients;
+    private List<Ingredient> ingredients = new ArrayList<>();
     
-
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
 }
