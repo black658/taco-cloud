@@ -1,12 +1,12 @@
-package sia.tacos;
+package tacos;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import sia.tacos.Ingredient.Type;
-import sia.tacos.data.IngredientRepository;
+import tacos.Ingredient.Type;
+import tacos.data.IngredientRepository;
 
 @SpringBootApplication
 public class TacoCloudApplication {
@@ -18,7 +18,6 @@ public class TacoCloudApplication {
 	@Bean
 	public CommandLineRunner dataLoader(IngredientRepository repo) {
 		return new CommandLineRunner() {
-
 			@Override
 			public void run(String... args) throws Exception {
 				repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
@@ -34,4 +33,6 @@ public class TacoCloudApplication {
 			}
 		};
 	}
+
+
 }
